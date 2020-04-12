@@ -10,8 +10,11 @@ def example():
         global obsticles
         points = request.form['points']
         obsticles = request.form['obsticles']
+        heights =  request.form['heights']
         print('mine points er  ' + points)
         print('mine obst er  ' + obsticles)
+        results = heights.split(',')
+        print(list(map(int, results)))
         return '<h1>Submitted</h1>'
 
     return render_template('index.html')

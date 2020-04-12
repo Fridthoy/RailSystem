@@ -1,10 +1,7 @@
-
-
-point = '[(33,9),(31,10),(2021,18)]'
-
-def update(points):
+def update(point):
     a= ''
     liste = []
+    toMM = 500
     for i in point:
 
         if i.isdigit():
@@ -27,11 +24,12 @@ def update(points):
         elif count ==2:
             b= i
         if count== 2:
-            finalList.append((a,b))
+            finalList.append((a*toMM,b*toMM))
 
         count += 1
 
     return finalList
 
-print(update(point))
+
+print(update('[(26,7),(29,4),(36,4),(31,2)]'))
 

@@ -6,6 +6,19 @@ let y = 0;
 
 let points = [];
 let obsticles = [];
+let heights =[];
+
+function addHeight() {
+    var txt;
+    var height = prompt("Please enter your height:[m]", "5");
+    if (height == null || height == "") {
+      txt = "User cancelled the prompt.";
+    } else {
+      heights.push(height);
+      addPoints();
+    }
+  }
+
 
 function makeCanvas(x,y){
     canvas.width = window.innerWidth/2;
@@ -45,11 +58,10 @@ function addPoints(){
     }
     myObsticles += ']';
 
-    document.getElementById('test').innerHTML = "<form method= 'POST'> Points <input type= 'text' name = 'points' value =" +myPoints+"> Obsticles <input type= 'text' name = 'obsticles' value =" +myObsticles+"><input type = 'submit'></form>";
+    document.getElementById('test').innerHTML = "<form method= 'POST'>Heights <input type= 'text' name = 'heights' value =" +heights+"> Points <input type= 'text' name = 'points' value =" +myPoints+"> Obsticles <input type= 'text' name = 'obsticles' value =" +myObsticles+"><input type = 'submit'></form>";
 }
 
 function gridUpdate(event){
-    console.log("b");
     width = canvas.width / x;
     height = canvas.height/ y;
     for(let i= 0; i<= x; i++){
@@ -69,7 +81,7 @@ function gridUpdate(event){
             }
         }
     }
-    console.log(points);
+    addHeight();
 }
 
 function gridUpdateObsticle(event){
